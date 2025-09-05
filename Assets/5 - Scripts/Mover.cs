@@ -5,15 +5,14 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    // Variables a configurar desde el editor
     [Header("Configuracion")]
     [SerializeField] float velocidad = 5f;
+    [SerializeField] private float fuerzaSalto = 5f;
 
-    // Variables de uso interno en el script
     private float moverHorizontal;
     private Vector2 direccion;
-
-    // Variable para referenciar otro componente del objeto
+    private bool puedoSaltar = true;
+    private bool saltando = false;
     private Rigidbody2D miRigidbody2D;
 
     // Codigo ejecutado cuando el objeto se activa en el nivel
@@ -27,9 +26,25 @@ public class Mover : MonoBehaviour
     {
         moverHorizontal = Input.GetAxis("Horizontal");
         direccion = new Vector2(moverHorizontal, 0f);
+        if (Input.GetKeyDown(KeyCode.Space) && puedoSaltar)
+        {
+            puedoSaltar = false;
+        }
     }
+
     private void FixedUpdate()
     {
         miRigidbody2D.AddForce(direccion * velocidad);
+        if (!puedoSaltar && !saltando)
+        {
+            miRigidbody2D.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
+            saltando = true;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        puedoSaltar = true;
+        saltando = false;
     }
 }
