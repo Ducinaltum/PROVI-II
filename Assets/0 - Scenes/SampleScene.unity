@@ -457,6 +457,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 5
+  fuerzaSalto: 6.5
 --- !u!212 &733060743
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -501,7 +502,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -6962904600874008439, guid: 099fa2dcb9687964b9571a8be502388d, type: 3}
+  m_Sprite: {fileID: 8327456709618745999, guid: 2de22c854e49ad0449bee6ed024bd6d5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -537,7 +538,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a6184c92b76dfcb4ab7c8f2c05800289, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -580,7 +581,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a6184c92b76dfcb4ab7c8f2c05800289, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
