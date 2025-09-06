@@ -14,6 +14,8 @@ public class DamageReceiver : MonoBehaviour
     public UnityEvent OnDeath;
 
     public float CurrentRatio => (float)m_currentHealth / m_maxHealth;
+    public int CurrentHealth => m_currentHealth;
+    public int MaxHealth => m_maxHealth;
 
     void Awake()
     {

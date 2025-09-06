@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class PlayerHealthIndicator : MonoBehaviour
 {
-    [SerializeField] private Image m_bar;
+    [SerializeField] private GameObject m_healthIndicatorItemPrefab;
+    private GameObject[] m_indicators;
     private DamageReceiver m_target;
 
     void Start()
@@ -12,6 +13,11 @@ public class PlayerHealthIndicator : MonoBehaviour
         if (ServiceLocator.TryGetService(out m_target))
         {
             m_target.OnDamageRecieved.AddListener(UpdateBar);
+            m_indicators = new GameObject[m_target.MaxHealth];
+            for (int i = 0; i < m_target.MaxHealth; i++)
+            {
+                m_indicators[i] = Instantiate(m_healthIndicatorItemPrefab, transform);
+            }
         }
         else
         {
@@ -21,6 +27,9 @@ public class PlayerHealthIndicator : MonoBehaviour
 
     private void UpdateBar()
     {
-        m_bar.fillAmount = m_target.CurrentRatio;
+        for (int i = 0; i < m_indicators.Length; i++)
+        {
+            m_indicators[i].SetActive(i < m_target.CurrentHealth);
+        }
     }
 }
