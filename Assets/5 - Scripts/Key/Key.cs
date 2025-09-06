@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Key : MonoBehaviour
 {
+    [SerializeField] private KeysSpritesLookup m_keysSpritesLookup;
     [SerializeField] private EKeys m_ID;
     [SerializeField] private SpriteRenderer m_spriteRenderer;
 
@@ -13,15 +14,11 @@ public class Key : MonoBehaviour
 
     private void Start()
     {
-        if (ServiceLocator.TryGetService(out KeyMaster level))
+        if (ServiceLocator.TryGetService(out KeyMaster keymaster))
         {
-            level.RegisterKey(this);
+            keymaster.RegisterKey(this);
         }
-    }
-
-    public void SetSprite(Sprite sprite)
-    {
-        m_spriteRenderer.sprite = sprite;
+        m_spriteRenderer.sprite = m_keysSpritesLookup.GetGameSprite(m_ID);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

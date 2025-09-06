@@ -11,6 +11,7 @@ public class KeyMaster : MonoBehaviour
     private HashSet<Door> m_doors = new();
     private EKeys m_pickedKeys;
     public UnityEvent<Key> OnKeyRegistered;
+    public UnityEvent<Key> OnKeyPickedUp;
 
     void Awake()
     {
@@ -21,14 +22,19 @@ public class KeyMaster : MonoBehaviour
     {
         ServiceLocator.UnregisterService<KeyMaster>();
     }
-    
+
     public void RegisterKey(Key key)
     {
-        Debug.Assert(!m_keys.ContainsKey(key.ID), $"The key {key.ID} is already registered review the scene");
-        m_keys.Add(key.ID, key);
-        key.SetSprite(m_keysSpritesLookup.GetGameSprite(key.ID));
-        key.OnKeyPickedUp.AddListener(CheckDoorsState);
-        OnKeyRegistered?.Invoke(key);
+        if (!m_keys.ContainsKey(key.ID))
+        {
+            m_keys.Add(key.ID, key);
+            key.OnKeyPickedUp.AddListener(CheckDoorsState);
+            OnKeyRegistered?.Invoke(key);
+        }
+        else
+        {
+            Debug.LogError($"The key {key.ID} is already registered review the scene");
+        }
     }
 
     public void RegisterDoor(Door door)
@@ -46,5 +52,6 @@ public class KeyMaster : MonoBehaviour
             door.Open();
             m_doors.Remove(door);
         }
+        OnKeyPickedUp?.Invoke(key);
     }
 }

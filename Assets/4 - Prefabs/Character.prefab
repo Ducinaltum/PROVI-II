@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7250789515133263409}
   - component: {fileID: 4195177554001442933}
   - component: {fileID: 4045117006890004959}
+  - component: {fileID: 3982614520837962048}
+  - component: {fileID: 5320253061439432743}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -168,3 +170,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 5
   fuerzaSalto: 6.5
+--- !u!114 &3982614520837962048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747036736479523188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665c1c1b86eea624dadb2c847afaa4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_maxHealth: 5
+  m_invulnerabilityDuration: 1
+  OnDamageRecieved:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5320253061439432743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747036736479523188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d27c3ebaf28da43960e4e9ff83454d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_damageReceiver: {fileID: 3982614520837962048}
