@@ -16,7 +16,7 @@ public class MainMenuCanvas : MonoBehaviour
 
     private void PlayGame()
     {
-        SceneManager.LoadScene("TestLevel");
+        SceneManager.LoadScene("TestScene");
     }
 
     private void ExitGame()
