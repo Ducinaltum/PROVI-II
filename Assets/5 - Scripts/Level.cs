@@ -17,8 +17,8 @@ public class Level : MonoBehaviour
 
     public void OnDoorTrespassed(Door door)
     {
-        Debug.Log("Player WON!!! What now???");
-        RestartLEvel();
+        Debug.Log("PLAYER WON!!!");
+        SceneManager.LoadScene("MainMenu");
     }
 
     internal void RegisterCharacter(Character character)
