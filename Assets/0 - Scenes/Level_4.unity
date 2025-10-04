@@ -687,7 +687,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.9, y: 28, z: -10}
+  m_LocalPosition: {x: -38.3, y: 2.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -963,7 +963,7 @@ Transform:
   m_GameObject: {fileID: 1040735429}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.9, y: 28, z: -10}
+  m_LocalPosition: {x: -38.3, y: 2.4, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32706,11 +32706,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 78331842093351039, guid: af3b29f509f4b634cb671a9305c5633e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.9
+      value: -38.3
       objectReference: {fileID: 0}
     - target: {fileID: 78331842093351039, guid: af3b29f509f4b634cb671a9305c5633e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 28
+      value: 2.4
       objectReference: {fileID: 0}
     - target: {fileID: 78331842093351039, guid: af3b29f509f4b634cb671a9305c5633e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -32775,11 +32775,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2092062081190932267, guid: 423e7eb60dfd3d44ebfc12c4262ff8bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.29
+      value: -73.31
       objectReference: {fileID: 0}
     - target: {fileID: 2092062081190932267, guid: 423e7eb60dfd3d44ebfc12c4262ff8bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.39
+      value: 45.72
       objectReference: {fileID: 0}
     - target: {fileID: 2092062081190932267, guid: 423e7eb60dfd3d44ebfc12c4262ff8bb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -32817,6 +32817,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyTo2
       objectReference: {fileID: 0}
+    - target: {fileID: 4696451266065799486, guid: 423e7eb60dfd3d44ebfc12c4262ff8bb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3686400268592124516, guid: 55c23db90bf505c4ab5f41bcd853059e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

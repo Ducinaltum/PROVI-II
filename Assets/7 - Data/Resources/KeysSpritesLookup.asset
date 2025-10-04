@@ -14,14 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_keysSprites:
   - ID: 1
-    GameSprite: {fileID: 2240346132557837991, guid: cf608a0ac4883cf41be1edd9912d6487, type: 3}
-    HUDSprite: {fileID: 9164147829300578248, guid: f24e539b3dbe22742a81bc88d1fda925, type: 3}
+    Color: {r: 0, g: 0.083200455, b: 1, a: 1}
   - ID: 2
-    GameSprite: {fileID: 4492795533394744063, guid: e20cda0a24ca05643bc851d90d601724, type: 3}
-    HUDSprite: {fileID: -6704411614004053035, guid: 7eb915b34e10f9148b732ffa6deda325, type: 3}
+    Color: {r: 1, g: 0, b: 0, a: 1}
   - ID: 4
-    GameSprite: {fileID: -6508212642764552397, guid: fcd304f24984ba3448303beb02a6fa54, type: 3}
-    HUDSprite: {fileID: 6715315477250290336, guid: ba83da8077ea01945b415be97b0e2ef0, type: 3}
+    Color: {r: 1, g: 0.90713394, b: 0, a: 1}
   - ID: 8
-    GameSprite: {fileID: -2627438401199300823, guid: 9d0bc5287f93ee34a8e8f4770cf25d59, type: 3}
-    HUDSprite: {fileID: 6716069871434709492, guid: ff1e39340aeb48241bb3dba206dd53f7, type: 3}
+    Color: {r: 0, g: 1, b: 0.020182133, a: 1}

@@ -18,7 +18,7 @@ public class Key : MonoBehaviour
         {
             keymaster.RegisterKey(this);
         }
-        m_spriteRenderer.sprite = m_keysSpritesLookup.GetGameSprite(m_ID);
+        m_spriteRenderer.color = m_keysSpritesLookup.GetColor(m_ID);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

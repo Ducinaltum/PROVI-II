@@ -16,6 +16,6 @@ public class KeychainIndicator : MonoBehaviour
     void AddKey(Key key)
     {
         KeyIndicatorItemUI item = Instantiate(m_keyIndicatorItemUIPrefab, transform);
-        item.SetKeySprite(m_keysSpritesLookup.GetHUDSprite(key.ID));
+        item.SetKeyColor(m_keysSpritesLookup.GetColor(key.ID));
     }
 }

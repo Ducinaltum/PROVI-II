@@ -9,24 +9,14 @@ public class KeysSpritesLookup : ScriptableObject
     [SerializeField] private KeysGameHudPair[] m_keysSprites;
     private Dictionary<EKeys, KeysGameHudPair> m_lookup;
 
-    public Sprite GetGameSprite(EKeys id)
+    public Color GetColor(EKeys id)
     {
         m_lookup ??= GenerateLookup();
         if (m_lookup.TryGetValue(id, out KeysGameHudPair pair))
         {
-            return pair.GameSprite;
+            return pair.Color;
         }
-        return null;
-    }
-
-    public Sprite GetHUDSprite(EKeys id)
-    {
-        m_lookup ??= GenerateLookup();
-        if (m_lookup.TryGetValue(id, out KeysGameHudPair pair))
-        {
-            return pair.HUDSprite;
-        }
-        return null;
+        return default;
     }
 
     private Dictionary<EKeys, KeysGameHudPair> GenerateLookup()
@@ -39,7 +29,5 @@ public class KeysSpritesLookup : ScriptableObject
 public class KeysGameHudPair
 {
     public EKeys ID;
-    public Sprite GameSprite;
-    public Sprite HUDSprite;
-    public Color KeyColor;
+    public Color Color = Color.white;
 }
