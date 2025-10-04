@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] private EKeys m_unlockerKeys;
+    [SerializeField] private DoorConfiguration m_configuration;
     [SerializeField] private GameObject m_openDoor;
     [SerializeField] private GameObject m_closedDoor;
 
-    public EKeys UnlockerKeys => m_unlockerKeys;
+    public DoorConfiguration Configuration => m_configuration;
     void Start()
     {
         if (ServiceLocator.TryGetService(out KeyMaster level))

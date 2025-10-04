@@ -41,4 +41,5 @@ public class KeysGameHudPair
     public EKeys ID;
     public Sprite GameSprite;
     public Sprite HUDSprite;
+    public Color KeyColor;
 }

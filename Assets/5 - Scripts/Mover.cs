@@ -7,12 +7,13 @@ public class Mover : MonoBehaviour
 {
     [Header("Configuracion")]
     [SerializeField] float velocidad = 5f;
-    [SerializeField] private float fuerzaSalto = 5f;
+    [SerializeField] private float m_jumpStrenghtBase = 2f;
+    [SerializeField] private float m_jumpStrenghtDecayCoeficent = 0.8f;
+    private float m_actualJumpStrenght = 5f;
 
     private float moverHorizontal;
     private Vector2 direccion;
-    private bool puedoSaltar = true;
-    private bool saltando = false;
+    private bool m_jumping = false;
     private Rigidbody2D miRigidbody2D;
 
     // Codigo ejecutado cuando el objeto se activa en el nivel
@@ -26,25 +27,29 @@ public class Mover : MonoBehaviour
     {
         moverHorizontal = Input.GetAxis("Horizontal");
         direccion = new Vector2(moverHorizontal, 0f);
-        if (Input.GetKeyDown(KeyCode.Space) && puedoSaltar)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            puedoSaltar = false;
+            m_jumping = true;
+        }
+        if (Input.GetKeyUp(KeyCode.Space) && m_jumping)
+        {
+            m_jumping = false;
         }
     }
 
     private void FixedUpdate()
     {
         miRigidbody2D.AddForce(direccion * velocidad);
-        if (!puedoSaltar && !saltando)
+        if (m_jumping)
         {
-            miRigidbody2D.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
-            saltando = true;
+            miRigidbody2D.AddForce(Vector2.up * m_actualJumpStrenght, ForceMode2D.Impulse);
+            m_actualJumpStrenght *= m_jumpStrenghtDecayCoeficent;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        puedoSaltar = true;
-        saltando = false;
+        m_actualJumpStrenght = m_jumpStrenghtBase;
+        m_jumping = false;
     }
 }

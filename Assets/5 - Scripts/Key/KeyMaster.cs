@@ -46,7 +46,7 @@ public class KeyMaster : MonoBehaviour
     private void CheckDoorsState(Key key)
     {
         m_pickedKeys |= key.ID;
-        Door[] unlockedDoors = m_doors.Where(d => (d.UnlockerKeys & m_pickedKeys) == d.UnlockerKeys).ToArray();
+        Door[] unlockedDoors = m_doors.Where(d => d.Configuration.GetIsUnlocked(m_pickedKeys)).ToArray();
         foreach (Door door in unlockedDoors)
         {
             door.Open();
