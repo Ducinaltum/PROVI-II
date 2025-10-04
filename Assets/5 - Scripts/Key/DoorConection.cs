@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "DoorConection", menuName = "Scriptable Objects/DoorConection")]
@@ -14,5 +15,18 @@ public class DoorConfiguration : ScriptableObject
     public bool GetIsUnlocked(EKeys keys)
     {
         return (UnlocksWith & keys) == UnlocksWith;
+    }
+
+    public  List<EKeys> GetNeededKeys()
+    {
+        List<EKeys> keys = new();
+        foreach (EKeys flag in EKeys.GetValues(typeof(EKeys)))
+        {
+            if (UnlocksWith.HasFlag(flag) && flag != default)
+            {
+                keys.Add(flag);
+            }
+        }
+        return keys;
     }
 }

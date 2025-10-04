@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9c4af2796d0517c4191018a13f8ef313
+guid: 2a4f9ff3c75cfa843a8d5733f52cc2ce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7355953790751969376
-    second: flag_bnw_b_0
+      213: -2995276098000804610
+    second: flag_green_b_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: flag_bnw_b_0
+      name: flag_green_b_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 27
-        width: 114
-        height: 84
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.16015625, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0af6a0630076ae990800000000000000
-      internalID: -7355953790751969376
+      spriteID: ef4a17e2244ae66d0800000000000000
+      internalID: -2995276098000804610
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e2ec0ef26b3ac6f44b398e86053c5158
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      flag_bnw_b_0: -7355953790751969376
+      flag_green_b_0: -2995276098000804610
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

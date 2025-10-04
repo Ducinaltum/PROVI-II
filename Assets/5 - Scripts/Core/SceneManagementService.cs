@@ -3,14 +3,31 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagementService : MonoBehaviour
 {
-    void Awake()
+    private static SceneManagementService m_instance;
+    public static SceneManagementService Instance
     {
-        ServiceLocator.RegisterService(this);
+        get
+        {
+            if (m_instance == default)
+            {
+                GameObject obj = new(nameof(SceneManagementService));
+                m_instance = obj.AddComponent<SceneManagementService>();
+            }
+            return m_instance;
+        }
     }
 
-    void OnDestroy()
+    void Awake()
     {
-        ServiceLocator.UnregisterService<SceneManagementService>();
+        if (m_instance != null && m_instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            m_instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void GoToScene(string sceneName)

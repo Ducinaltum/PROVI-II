@@ -500,7 +500,6 @@ GameObject:
   m_Component:
   - component: {fileID: 476342263}
   - component: {fileID: 476342265}
-  - component: {fileID: 476342264}
   m_Layer: 0
   m_Name: Controllers
   m_TagString: Untagged
@@ -523,25 +522,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &476342264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 476342262}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69ac454e1acd0ae4e9ce656de53bb24e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_keysSpritesLookup: {fileID: 11400000, guid: 2fa0b49ce614e5742ad1af79fc3009f3, type: 2}
-  OnKeyRegistered:
-    m_PersistentCalls:
-      m_Calls: []
-  OnKeyPickedUp:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &476342265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24847,6 +24827,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 844885429}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1811193717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1811193719}
+  - component: {fileID: 1811193718}
+  m_Layer: 0
+  m_Name: GlobalControllers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1811193718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811193717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ac454e1acd0ae4e9ce656de53bb24e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_keysSpritesLookup: {fileID: 11400000, guid: 2fa0b49ce614e5742ad1af79fc3009f3, type: 2}
+  OnKeyRegistered:
+    m_PersistentCalls:
+      m_Calls: []
+  OnKeyPickedUp:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &1811193719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811193717}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1691165941585442880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25214,3 +25245,4 @@ SceneRoots:
   - {fileID: 1610070586}
   - {fileID: 614633374}
   - {fileID: 1971257776932804770}
+  - {fileID: 1811193719}

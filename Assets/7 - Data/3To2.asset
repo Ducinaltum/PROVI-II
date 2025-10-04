@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: 3To2
   m_EditorClassIdentifier: 
   ConnectsTo: 2
-  UnlocksWith: 0
+  UnlocksWith: 6

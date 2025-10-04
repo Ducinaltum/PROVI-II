@@ -13,6 +13,8 @@ public class KeyMaster : MonoBehaviour
     public UnityEvent<Key> OnKeyRegistered;
     public UnityEvent<Key> OnKeyPickedUp;
 
+    public EKeys PickedKeys => m_pickedKeys;
+
     void Awake()
     {
         ServiceLocator.RegisterService(this);
@@ -46,11 +48,12 @@ public class KeyMaster : MonoBehaviour
     private void CheckDoorsState(Key key)
     {
         m_pickedKeys |= key.ID;
-        Door[] unlockedDoors = m_doors.Where(d => d.Configuration.GetIsUnlocked(m_pickedKeys)).ToArray();
-        foreach (Door door in unlockedDoors)
+        foreach (Door door in m_doors)
         {
-            door.Open();
-            m_doors.Remove(door);
+            if (door.GetIsUnlocked(m_pickedKeys))
+            {
+                m_doors.Remove(door);
+            }
         }
         OnKeyPickedUp?.Invoke(key);
     }

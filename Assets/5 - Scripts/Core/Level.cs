@@ -21,12 +21,8 @@ public class Level : MonoBehaviour
 
     public void OnDoorTrespassed(Door door)
     {
-        Debug.Log("PLAYER WON!!!");
-        //SceneManager.LoadScene("MainMenu");
-        if (ServiceLocator.TryGetService(out SceneManagementService service))
-        {
-            service.GoToScene(door.Configuration.GetTargetSceneName());
-        }
+        Debug.Log("Door trespassed");
+        SceneManagementService.Instance.GoToScene(door.Configuration.GetTargetSceneName());
     }
 
     internal void RegisterCharacter(Character character)
