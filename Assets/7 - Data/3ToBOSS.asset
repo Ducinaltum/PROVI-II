@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e3620a18e58c7479a7214d53dffe04, type: 3}
   m_Name: 3ToBOSS
   m_EditorClassIdentifier: 
-  ConnectsTo: 
+  ConnectsTo: BOSS
   UnlocksWith: 0
