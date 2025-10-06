@@ -14,11 +14,13 @@ public class Key : MonoBehaviour
 
     private void Start()
     {
-        if (ServiceLocator.TryGetService(out KeyMaster keymaster))
-        {
-            keymaster.RegisterKey(this);
-        }
+        KeyMaster.Instance.RegisterKey(this);
         m_spriteRenderer.color = m_keysSpritesLookup.GetColor(m_ID);
+    }
+
+    void OnDestroy()
+    {
+        KeyMaster.Instance.UnregisterKey(this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

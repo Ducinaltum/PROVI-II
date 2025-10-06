@@ -6,12 +6,22 @@ public class Level : MonoBehaviour
 {
     [SerializeField] private string m_levelName;
     private Character m_character;
-
+    private static DoorConfiguration m_lastTraveledDoor = default;
     public string LevelName => m_levelName;
 
     void Awake()
     {
         ServiceLocator.RegisterService(this);
+    }
+
+    void Start()
+    {
+        if (m_lastTraveledDoor != default)
+        {
+            string doorID = m_lastTraveledDoor.GetSourceSceneName();
+            KeyMaster.Instance.TravelToDoor(doorID);
+            m_lastTraveledDoor = default;
+        }
     }
 
     void OnDestroy()
@@ -22,7 +32,8 @@ public class Level : MonoBehaviour
     public void OnDoorTrespassed(Door door)
     {
         Debug.Log("Door trespassed");
-        SceneManagementService.Instance.GoToScene(door.Configuration.GetTargetSceneName());
+        m_lastTraveledDoor = door.Configuration;
+        SceneManagementService.Instance.GoToScene("Level_" + door.Configuration.GetTargetSceneName());
     }
 
     internal void RegisterCharacter(Character character)

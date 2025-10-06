@@ -880,9 +880,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_keysSpritesLookup: {fileID: 11400000, guid: 2fa0b49ce614e5742ad1af79fc3009f3, type: 2}
-  OnKeyRegistered:
-    m_PersistentCalls:
-      m_Calls: []
   OnKeyPickedUp:
     m_PersistentCalls:
       m_Calls: []
@@ -22577,11 +22574,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2092062081190932267, guid: 423e7eb60dfd3d44ebfc12c4262ff8bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.29
+      value: 21.63
       objectReference: {fileID: 0}
     - target: {fileID: 2092062081190932267, guid: 423e7eb60dfd3d44ebfc12c4262ff8bb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.39
+      value: -10.5
       objectReference: {fileID: 0}
     - target: {fileID: 2092062081190932267, guid: 423e7eb60dfd3d44ebfc12c4262ff8bb, type: 3}
       propertyPath: m_LocalPosition.z

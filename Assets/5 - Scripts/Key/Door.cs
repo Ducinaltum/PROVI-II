@@ -12,7 +12,8 @@ public class Door : MonoBehaviour
     private FlagController[] m_flags;
     private bool m_isUnlocked;
     public DoorConfiguration Configuration => m_configuration;
-    void Start()
+
+    void Awake()
     {
         List<EKeys> neededKeys = m_configuration.GetNeededKeys();
         m_flags = new FlagController[neededKeys.Count];
@@ -22,19 +23,32 @@ public class Door : MonoBehaviour
             flag.Initialize(neededKeys[i]);
             m_flags[i] = flag;
         }
-        
-        if (ServiceLocator.TryGetService(out KeyMaster level))
-            if (!GetIsUnlocked(level.PickedKeys))
-                level.RegisterDoor(this);
+        KeyMaster.Instance.RegisterDoor(this);
+    }
+
+    void OnDestroy()
+    {
+        KeyMaster.Instance.UnregisterDoor(this);        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (m_isUnlocked && ServiceLocator.TryGetService(out Level level))
+            if (collision.TryGetComponent(out Character player))
             {
-                level.OnDoorTrespassed(this);
+                player.SetIsOnDoor(this, true);
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            if (collision.TryGetComponent(out Character player))
+            {
+                player.SetIsOnDoor(this, false);
             }
         }
     }

@@ -1,21 +1,27 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class KeychainIndicator : MonoBehaviour
 {
     [SerializeField] private KeysSpritesLookup m_keysSpritesLookup;
     [SerializeField] private KeyIndicatorItemUI m_keyIndicatorItemUIPrefab;
-    
+
     void Start()
     {
-        if (ServiceLocator.TryGetService(out KeyMaster keymaster))
+        KeyMaster.Instance.OnKeyPickedUp.AddListener(AddKey);
+        List<EKeys> keys = new();
+        foreach (EKeys flag in EKeys.GetValues(typeof(EKeys)))
         {
-            keymaster.OnKeyPickedUp.AddListener(AddKey);
+            if (KeyMaster.Instance.PickedKeys.HasFlag(flag) && flag != default)
+            {
+                AddKey(flag);
+            }
         }
     }
 
-    void AddKey(Key key)
+    void AddKey(EKeys key)
     {
         KeyIndicatorItemUI item = Instantiate(m_keyIndicatorItemUIPrefab, transform);
-        item.SetKeyColor(m_keysSpritesLookup.GetColor(key.ID));
+        item.SetKeyColor(m_keysSpritesLookup.GetColor(key));
     }
 }
