@@ -18,7 +18,7 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        if (m_currentDoor != null && Input.GetKeyDown(KeyCode.E))
+        if (m_currentDoor != null && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.W)))
         {
             if (ServiceLocator.TryGetService(out Level level))
             {
@@ -37,5 +37,10 @@ public class Character : MonoBehaviour
         {
             m_currentDoor = default;
         }
+    }
+
+    internal void Collect(int m_collectibleValue)
+    {
+        throw new NotImplementedException();
     }
 }

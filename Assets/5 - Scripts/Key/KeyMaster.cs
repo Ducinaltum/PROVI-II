@@ -139,13 +139,14 @@ public class KeyMaster : MonoBehaviour
         {
             m_doors.Remove(door);
         }
+        
         if (m_openedDoors.Contains(door))
         {
-            m_doors.Remove(door);
+            m_openedDoors.Remove(door);
         }
         else if (m_closedDoor.Contains(door))
         {
-            m_doors.Remove(door);
+            m_closedDoor.Remove(door);
         }
     }
 
