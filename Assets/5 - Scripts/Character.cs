@@ -5,6 +5,7 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField] private DamageReceiver m_damageReceiver;
+    //[SerializeField] private  m_damageReceiver;
     public DamageReceiver DamageReceiver => m_damageReceiver;
     private Door m_currentDoor;
 

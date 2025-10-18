@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4045117006890004959}
   - component: {fileID: 3982614520837962048}
   - component: {fileID: 5320253061439432743}
+  - component: {fileID: 4156411903642198588}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -169,7 +170,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidad: 5
-  fuerzaSalto: 6.5
+  m_jumpStrenghtBase: 2
+  m_jumpStrenghtDecayCoeficent: 0.8
 --- !u!114 &3982614520837962048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,3 +205,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_damageReceiver: {fileID: 3982614520837962048}
+--- !u!114 &4156411903642198588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747036736479523188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5b46b937851b84aac232296ad51ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rb: {fileID: 7250789515133263409}
+  m_fireballPrefab: {fileID: 8361717057986119751, guid: c935b755920dfb441bcf57702b1ac074, type: 3}
+  m_attackRate: 1.5
+  m_spawnDistance: 1

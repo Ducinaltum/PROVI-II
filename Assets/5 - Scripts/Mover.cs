@@ -9,24 +9,23 @@ public class Mover : MonoBehaviour
     [SerializeField] float velocidad = 5f;
     [SerializeField] private float m_jumpStrenghtBase = 2f;
     [SerializeField] private float m_jumpStrenghtDecayCoeficent = 0.8f;
+    private Rigidbody2D m_rigidbody2D;
     private float m_actualJumpStrenght = 5f;
-
-    private float moverHorizontal;
-    private Vector2 direccion;
+    private float m_moverHorizontal;
+    private Vector2 m_direccion;
     private bool m_jumping = false;
-    private Rigidbody2D miRigidbody2D;
 
     // Codigo ejecutado cuando el objeto se activa en el nivel
     private void OnEnable()
     {
-        miRigidbody2D = GetComponent<Rigidbody2D>();
+        m_rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Codigo ejecutado en cada frame del juego (Intervalo variable)
     private void Update()
     {
-        moverHorizontal = Input.GetAxis("Horizontal");
-        direccion = new Vector2(moverHorizontal, 0f);
+        m_moverHorizontal = Input.GetAxis("Horizontal");
+        m_direccion = new Vector2(m_moverHorizontal, 0f);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             m_jumping = true;
@@ -39,10 +38,10 @@ public class Mover : MonoBehaviour
 
     private void FixedUpdate()
     {
-        miRigidbody2D.AddForce(direccion * velocidad);
+        m_rigidbody2D.AddForce(m_direccion * velocidad);
         if (m_jumping)
         {
-            miRigidbody2D.AddForce(Vector2.up * m_actualJumpStrenght, ForceMode2D.Impulse);
+            m_rigidbody2D.AddForce(Vector2.up * m_actualJumpStrenght, ForceMode2D.Impulse);
             m_actualJumpStrenght *= m_jumpStrenghtDecayCoeficent;
         }
     }
