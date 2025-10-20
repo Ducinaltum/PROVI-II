@@ -4,10 +4,29 @@ using UnityEngine;
 //The old and reliable facade
 public class Character : MonoBehaviour
 {
+    [SerializeField] private int m_defaultMaxHealth = 5;
     [SerializeField] private DamageReceiver m_damageReceiver;
-    //[SerializeField] private  m_damageReceiver;
-    public DamageReceiver DamageReceiver => m_damageReceiver;
+    [SerializeField] private BookKeeper m_bookKeeper;
     private Door m_currentDoor;
+    private SessionData m_sessionData;
+    public DamageReceiver DamageReceiver => m_damageReceiver;
+    public BookKeeper BookKeeper => m_bookKeeper;
+
+    void Awake()
+    {
+        //If safe to obtain this service here because SessionData is a pure class
+        if (ServiceLocator.TryGetService(out SessionData sessionData))
+        {
+            m_sessionData = sessionData;
+        }
+        else
+        {
+            m_sessionData = new(m_defaultMaxHealth);
+        }
+
+        m_damageReceiver.Initialize(m_sessionData);
+        m_bookKeeper.Initialize(m_sessionData);
+    }
 
     void Start()
     {
@@ -15,6 +34,7 @@ public class Character : MonoBehaviour
         {
             level.RegisterCharacter(this);
         }
+
     }
 
     void Update()
@@ -28,20 +48,20 @@ public class Character : MonoBehaviour
         }
     }
 
-    internal void SetIsOnDoor(Door door, bool isOnDoor)
+    public void SetIsOnDoor(Door door, bool isOnDoor)
     {
         if (isOnDoor)
         {
             m_currentDoor = door;
         }
-        else if(m_currentDoor == door)
+        else if (m_currentDoor == door)
         {
             m_currentDoor = default;
         }
     }
 
-    internal void Collect(int m_collectibleValue)
+    public void Collect(int collectibleValue)
     {
-        throw new NotImplementedException();
+        m_bookKeeper.RecieveCurrency(collectibleValue);
     }
 }

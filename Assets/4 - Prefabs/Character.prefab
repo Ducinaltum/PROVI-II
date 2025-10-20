@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 3982614520837962048}
   - component: {fileID: 5320253061439432743}
   - component: {fileID: 4156411903642198588}
+  - component: {fileID: 205532068464390148}
   m_Layer: 0
   m_Name: Character
   m_TagString: Player
@@ -184,7 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 665c1c1b86eea624dadb2c847afaa4b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxHealth: 5
   m_invulnerabilityDuration: 1
   OnDamageRecieved:
     m_PersistentCalls:
@@ -204,7 +204,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d27c3ebaf28da43960e4e9ff83454d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_defaultMaxHealth: 5
   m_damageReceiver: {fileID: 3982614520837962048}
+  m_bookKeeper: {fileID: 205532068464390148}
 --- !u!114 &4156411903642198588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,3 +223,18 @@ MonoBehaviour:
   m_fireballPrefab: {fileID: 8361717057986119751, guid: c935b755920dfb441bcf57702b1ac074, type: 3}
   m_attackRate: 1.5
   m_spawnDistance: 1
+--- !u!114 &205532068464390148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747036736479523188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2163dd87ba7e7404ca0146e900d0ce41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnAmmountUpdated:
+    m_PersistentCalls:
+      m_Calls: []

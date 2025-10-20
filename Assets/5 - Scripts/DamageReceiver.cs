@@ -1,47 +1,47 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class DamageReceiver : MonoBehaviour
 {
-    [SerializeField] private int m_maxHealth;
     [SerializeField] private float m_invulnerabilityDuration = 1.0f;
-    private int m_currentHealth;
+    private HealthData m_healthData;
     private bool m_isInvulnerable;
     private WaitForSeconds m_waiter;
 
+    public int MaxHealth => m_healthData.MaxHealth;
+    public int CurrentHealth => m_healthData.CurrentHealth;
     public UnityEvent OnDamageRecieved;
     public UnityEvent OnDeath;
 
-    public float CurrentRatio => (float)m_currentHealth / m_maxHealth;
-    public int CurrentHealth => m_currentHealth;
-    public int MaxHealth => m_maxHealth;
 
     void Awake()
     {
         ServiceLocator.RegisterService(this);
     }
+
     void OnDestroy()
     {
         ServiceLocator.UnregisterService<DamageReceiver>();
     }
 
-    void Start()
+    public void Initialize(SessionData m_sessionData)
     {
-        m_currentHealth = m_maxHealth;
+        m_healthData = m_sessionData.HealthData;
         m_waiter = new WaitForSeconds(m_invulnerabilityDuration);
     }
 
 
     public void RecieveDamage()
     {
-        if (m_currentHealth > 0)
+        if (m_healthData.CurrentHealth > 0)
         {
             if (!m_isInvulnerable)
             {
-                m_currentHealth--;
+                m_healthData.TakeDamage();
                 OnDamageRecieved?.Invoke();
-                if (m_currentHealth <= 0)
+                if (m_healthData.IsDead)
                 {
                     OnDeath?.Invoke();
                 }

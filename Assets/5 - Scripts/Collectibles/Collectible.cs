@@ -11,6 +11,7 @@ public class Collectible : MonoBehaviour
             if (collision.TryGetComponent(out Character player))
             {
                 player.Collect(m_collectibleValue);
+                Destroy(gameObject);
             }
         }
     }
