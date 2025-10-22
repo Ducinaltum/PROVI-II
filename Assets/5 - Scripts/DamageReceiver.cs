@@ -40,6 +40,7 @@ public class DamageReceiver : MonoBehaviour
             if (!m_isInvulnerable)
             {
                 m_healthData.TakeDamage();
+                SoundPlayer.Instance.PlaySound(SoundKeys.RECEIVE_DAMAGE);
                 OnDamageRecieved?.Invoke();
                 if (m_healthData.IsDead)
                 {

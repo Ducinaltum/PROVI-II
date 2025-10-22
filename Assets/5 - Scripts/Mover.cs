@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Mover : MonoBehaviour
 {
@@ -14,6 +15,10 @@ public class Mover : MonoBehaviour
     private float m_moverHorizontal;
     private Vector2 m_direccion;
     private bool m_jumping = false;
+
+    public UnityEvent OnJump;
+    public UnityEvent OnLanded;
+    public float Speed => Mathf.Abs(m_rigidbody2D.linearVelocityX);
 
     // Codigo ejecutado cuando el objeto se activa en el nivel
     private void OnEnable()
@@ -29,6 +34,8 @@ public class Mover : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             m_jumping = true;
+            OnJump?.Invoke();
+            SoundPlayer.Instance.PlaySound(SoundKeys.JUMP);
         }
         if (Input.GetKeyUp(KeyCode.Space) && m_jumping)
         {
@@ -50,5 +57,6 @@ public class Mover : MonoBehaviour
     {
         m_actualJumpStrenght = m_jumpStrenghtBase;
         m_jumping = false;
+        OnLanded?.Invoke();
     }
 }

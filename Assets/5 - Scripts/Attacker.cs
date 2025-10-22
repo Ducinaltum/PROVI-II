@@ -27,6 +27,7 @@ public class Attacker : MonoBehaviour
             }
             Vector3 spawnPos = transform.position;
             fireball.Initialize(spawnPos, m_spawnDistance, Mathf.Sign(m_rb.linearVelocityX));
+            SoundPlayer.Instance.PlaySound(SoundKeys.SPAWN_PROJECTILE);
             m_canAttack = false;
             StartCoroutine(WaitForCoolDown());
         }

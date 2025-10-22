@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 360ce5ee3aa135c439f22b69adbe436d, type: 3}
+  m_Name: SoundDB
+  m_EditorClassIdentifier: 
+  m_audioClips:
+  - ID: collect_coin
+    AudioClip: {fileID: 8300000, guid: 59197be30c2e7de409aa4d69351cf315, type: 3}
+  - ID: recieve_damage
+    AudioClip: {fileID: 8300000, guid: 11a68cbe2bca4bf499acb094a89529f3, type: 3}
+  - ID: jump
+    AudioClip: {fileID: 8300000, guid: 274485e576469964bb0e94d1bb83fafe, type: 3}
+  - ID: spawn_projectile
+    AudioClip: {fileID: 8300000, guid: 6774c64b7d16c914b92db2f69f52ca2e, type: 3}
