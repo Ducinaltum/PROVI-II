@@ -18,15 +18,14 @@ public class Mover : MonoBehaviour
 
     public UnityEvent OnJump;
     public UnityEvent OnLanded;
-    public float Speed => Mathf.Abs(m_rigidbody2D.linearVelocityX);
+    public float Speed => m_rigidbody2D.linearVelocityX;
 
-    // Codigo ejecutado cuando el objeto se activa en el nivel
+    
     private void OnEnable()
     {
         m_rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    // Codigo ejecutado en cada frame del juego (Intervalo variable)
     private void Update()
     {
         m_moverHorizontal = Input.GetAxis("Horizontal");

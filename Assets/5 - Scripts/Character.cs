@@ -6,6 +6,7 @@ public class Character : MonoBehaviour
 {
     [SerializeField] private int m_defaultMaxHealth = 5;
     [SerializeField] private Animator m_animator;
+    [SerializeField] private SpriteRenderer m_renderer;
     [SerializeField] private DamageReceiver m_damageReceiver;
     [SerializeField] private BookKeeper m_bookKeeper;
     [SerializeField] private Mover m_mover;
@@ -60,7 +61,8 @@ public class Character : MonoBehaviour
 
     void LateUpdate()
     {
-        m_animator.SetFloat("speed", m_mover.Speed);
+        m_renderer.flipX = m_mover.Speed < 0;
+        m_animator.SetFloat("speed", Mathf.Abs(m_mover.Speed));
     }
 
     public void SetIsOnDoor(Door door, bool isOnDoor)
