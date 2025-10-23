@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour, IPoolable
 {
+    [SerializeField] private FireballParticles m_particlesPrefab;
     [SerializeField] private float m_speed = 2.0f;
     [SerializeField] private float m_rotationSpeed = 15.0f;
     [SerializeField] private Transform m_body;
@@ -28,6 +29,14 @@ public class Fireball : MonoBehaviour, IPoolable
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        FireballParticles fireballParticles = ObjectPool<FireballParticles>.Instance.GetObject();
+        if (fireballParticles == null)
+        {
+            fireballParticles = Instantiate(m_particlesPrefab);
+        }
+        fireballParticles.gameObject.SetActive(true);
+        fireballParticles.transform.position = transform.position;
+        fireballParticles.Particles.Play();
         Dispose();
     }
 }
