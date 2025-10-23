@@ -110,6 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9bc3ef923f34f24d87ea39302a5fd3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_particlesPrefab: {fileID: 1535209056490056686, guid: 277e82bc69cec734ea7dc606822510ef, type: 3}
   m_speed: 12
   m_rotationSpeed: -720
   m_body: {fileID: 7585453056054745154}
